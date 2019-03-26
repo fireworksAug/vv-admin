@@ -1,0 +1,125 @@
+<template>
+    <div class="table-container">
+        <div class="search-form">
+            <Form ref="formInline" :model="formInline" :label-width="80">
+                <Row :gutter="16">
+                    <Col :xs="24" :md="12" :lg="6">
+                        <FormItem prop="pro_num" label="产品编号">
+                            <Input type="text" v-model="formInline.pro_num" placeholder="产品编号"/>
+                        </FormItem>
+                    </Col>
+                    <Col :xs="24" :md="12" :lg="6">
+                        <FormItem prop="pro_name" label="产品名称">
+                            <Input type="text" v-model="formInline.pro_name" placeholder="产品名称"/>
+                        </FormItem>
+                    </Col>
+                    <Col :xs="24" :md="12" :lg="6">
+                        <FormItem prop="pro_status" label="产品状态">
+                            <Select v-model="formInline.pro_status">
+                                <Option v-for="item in proStatus" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                            </Select>
+                        </FormItem>
+                    </Col>
+                    <Col :xs="24" :md="12" :lg="6">
+                        <FormItem>
+                            <Button type="primary" @click="handleClick">查询</Button>
+                            <Button @click="handleReset('formInline')" style="margin-left: 8px">重置</Button>
+                        </FormItem>
+                    </Col>
+                </Row>
+            </Form>
+        </div>
+       <v-table :border="true" :columns="columns" :data="tableData" :show-alter="true"></v-table>
+    </div>
+</template>
+
+<script>
+    import VTable from "../../components/VTable/VTable";
+    import {getTableData} from "../../api/table";
+    export default {
+        name: "Index",
+        components: {VTable},
+        data() {
+            return {
+                formInline: {
+                    pro_num: '',
+                    pro_name: '',
+                    pro_status: ''
+                },
+                proStatus: [
+                    {
+                        value: '1',
+                        label: '在线'
+                    }, {
+                        value: '2',
+                        label: '离线'
+                    }
+                ],
+                checkLen: 0,
+                columns: [
+                    {
+                        type: 'selection',
+                        width: 60,
+                        align: 'center'
+                    },
+                    {
+                        title: '产品编号',
+                        key: 'pro_num'
+                    },
+                    {
+                        title: '产品名称',
+                        key: 'pro_name'
+                    },
+                    {
+                        title: '上线日期',
+                        key: 'pro_date'
+                    },
+                    {
+                        title: '状态',
+                        key: 'pro_status'
+                    }
+                ],
+                tableData: []
+            }
+        },
+        methods: {
+            /**
+             * @description 重置查询表单
+             * @param form
+             */
+            handleReset(name) {
+                this.$refs[name].resetFields();
+            },
+            /**
+             * @description 查询表单数据
+             */
+            handleClick() {
+                getTableData(this.formInline).then(res => {
+                    console.log(res);
+                })
+            }
+        }
+    }
+</script>
+
+<style scoped lang="less">
+    .pad{
+        padding: 12px;
+    }
+    .table-container {
+        height: 100%;
+        position: relative;
+        padding: 12px;
+        background-clip: content-box;
+        background-color: #fff;
+        .search-form{
+            .pad;
+        }
+        .alter-box{
+            .pad;
+        }
+        .table-box{
+            .pad;
+        }
+    }
+</style>

@@ -4,14 +4,21 @@
         v-if="showAlter">
             当前已选择 <span style="color: dodgerblue;font-weight: bold;font-size: 16px">{{checkLen}}</span> 项
         </Alert>
+        <slot name="btn_group">
+
+        </slot>
         <Table :border="border"
                ref="selection"
                :columns="columns"
                :data="data"
                height="500"
-               @on-change="pageChange"
                @on-selection-change="selectChange"></Table>
-        <Page :total="100" class-name="page-class" show-sizer show-elevator show-total />
+        <Page :total="100" class-name="page-class"
+              :current="num"
+              :page-size="10"
+              @on-change="pageChange"
+              @on-page-size-change="pageSizeChange"
+              show-sizer show-elevator show-total />
     </div>
 </template>
 
@@ -50,7 +57,8 @@
         },
         data() {
             return {
-                selectData: [],
+                num: 1, // 当前页码
+                selectData: [], // 选中表格数据项集合
             }
         },
         computed: {
@@ -73,6 +81,13 @@
              */
             pageChange(page) {
                 this.$emit('page-change', page);
+            },
+            /**
+             * @description 切换每页条数时触发，返回切换后的每页条数
+             * @param size
+             */
+            pageSizeChange(size) {
+                this.$emit('size-change', size);
             }
         }
     }

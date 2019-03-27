@@ -16,7 +16,6 @@ export const routesMap = [
         hidden: true,
         meta: {
             roles: ['roleA'],
-            keepAlive: true
         },
         redirect: '/home',
         children: [
@@ -27,7 +26,6 @@ export const routesMap = [
                     roles: ['roleA'],
                     title: 'home',
                     icon: 'home',
-                    keepAlive: true
                 },
                 component: () => import('@/views/Home/Home.vue')
             }
@@ -41,7 +39,6 @@ export const routesMap = [
             roles: ['roleA', 'roleB'],
             title: 'example',
             icon: 'example',
-            keepAlive: true
         },
         children: [
             {
@@ -50,7 +47,8 @@ export const routesMap = [
                 meta:{
                     roles: ['roleA'],
                     title: 'form',
-                    icon: 'form'
+                    icon: 'form',
+                    keepAlive: true
                 },
                 component: () => import('@/views/form/Index.vue')
             },
@@ -60,7 +58,8 @@ export const routesMap = [
                 meta: {
                     roles: ['roleB'],
                     title: 'table',
-                    icon: 'table'
+                    icon: 'table',
+                    keepAlive: true
                 },
                 component: () => import('@/views/table/Index.vue')
             }

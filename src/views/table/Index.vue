@@ -29,7 +29,16 @@
                 </Row>
             </Form>
         </div>
-       <v-table :border="true" :columns="columns" :data="tableData" :show-alter="true"></v-table>
+       <v-table :border="true"
+                :columns="columns"
+                :data="tableData"
+                :show-alter="true"
+                @size-change="handleSizeChange"
+                @page-change="handlePageChange">
+           <div slot="btn_group" class="btn-group">
+               <Button type="primary" icon="md-add">新增</Button>
+           </div>
+       </v-table>
     </div>
 </template>
 
@@ -41,6 +50,7 @@
         components: {VTable},
         data() {
             return {
+                pageSize: 10,
                 formInline: {
                     pro_num: '',
                     pro_name: '',
@@ -71,16 +81,46 @@
                         key: 'pro_name'
                     },
                     {
-                        title: '上线日期',
-                        key: 'pro_date'
+                        title: '状态',
+                        key: 'pro_status',
+                        render: (h,param) => {
+                            const { row } = param;
+                            if (row.pro_status === 1) {
+                                return h('Badge', {
+                                    props: {
+                                        status: 'processing',
+                                        text: '运行中'
+                                    }
+                                })
+                            } else if (row.pro_status === 2) {
+                                return h('Badge', {
+                                    props: {
+                                        status: 'default',
+                                        text: '关闭'
+                                    }
+                                })
+                            } else {
+                                return h('Badge', {
+                                    props: {
+                                        status: 'error',
+                                        text: '故障'
+                                    }
+                                })
+                            }
+                        }
                     },
                     {
-                        title: '状态',
-                        key: 'pro_status'
+                        title: '上线日期',
+                        key: 'pro_date'
                     }
                 ],
                 tableData: []
             }
+        },
+        mounted() {
+            this.$nextTick(() => {
+                this.handleClick();
+            })
         },
         methods: {
             /**
@@ -94,9 +134,24 @@
              * @description 查询表单数据
              */
             handleClick() {
-                getTableData(this.formInline).then(res => {
-                    console.log(res);
+                getTableData(this.formInline,this.pageSize).then(res => {
+                    this.tableData = res.data;
                 })
+            },
+            /**
+             * @description 页码改变事件
+             * @param page
+             */
+            handlePageChange(page) {
+                this.handleClick();
+            },
+            /**
+             * @description 每页条数改变触发
+             * @param size
+             */
+            handleSizeChange(size){
+                this.pageSize = size;
+                this.handleClick();
             }
         }
     }
@@ -120,6 +175,9 @@
         }
         .table-box{
             .pad;
+        }
+        .btn-group{
+            margin-bottom: 6px;
         }
     }
 </style>

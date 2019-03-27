@@ -162,8 +162,6 @@
         padding: 12px;
     }
     .table-container {
-        height: 100%;
-        position: relative;
         padding: 12px;
         background-clip: content-box;
         background-color: #fff;

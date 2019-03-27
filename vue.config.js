@@ -37,6 +37,13 @@ module.exports = {
                 pathRewrite:{
                     '^/api':'/'
                 }
+            },
+            '/upload': {
+                target: 'http://jsonplaceholder.typicode.com/posts/',
+                changeOrigin: true,
+                pathRewrite:{
+                    '^/upload':'/'
+                }
             }
         }
     }

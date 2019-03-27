@@ -53,6 +53,17 @@ export const routesMap = [
                 component: () => import('@/views/form/Index.vue')
             },
             {
+                path: 'step-form',
+                name: 'stepForm',
+                meta: {
+                    roles: ['roleB'],
+                    title: 'stepForm',
+                    icon: 'step',
+                    keepAlive: true
+                },
+                component: () => import('@/views/step-form/Index.vue')
+            },
+            {
                 path: 'table',
                 name: 'table',
                 meta: {

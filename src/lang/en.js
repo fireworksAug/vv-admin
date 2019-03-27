@@ -3,7 +3,8 @@ export default {
         'home': 'Home',
         'example': 'Example',
         'table': 'Search Table',
-        'form': 'Basic Form'
+        'form': 'Basic Form',
+        'stepForm': 'Step Form'
     },
     navBar: {
         'setLang': 'Setting Language',

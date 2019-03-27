@@ -13,12 +13,14 @@
                :data="data"
                height="500"
                @on-selection-change="selectChange"></Table>
-        <Page :total="100" class-name="page-class"
-              :current="num"
-              :page-size="10"
-              @on-change="pageChange"
-              @on-page-size-change="pageSizeChange"
-              show-sizer show-elevator show-total />
+        <Row class="page-class">
+            <Page :total="100"
+                  :current="num"
+                  :page-size="10"
+                  @on-change="pageChange"
+                  @on-page-size-change="pageSizeChange"
+                  show-sizer show-elevator show-total />
+        </Row>
     </div>
 </template>
 
@@ -102,7 +104,7 @@
         }
         .page-class{
             margin-top: 6px;
-            float: right;
+            text-align: right;
         }
     }
 </style>

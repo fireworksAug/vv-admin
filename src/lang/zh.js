@@ -3,7 +3,8 @@ export default {
         'home': '首页',
         'example': '示例',
         'table': '查询表格',
-        'form': '基础表单'
+        'form': '基础表单',
+        'stepForm': '分步表单'
     },
     navBar: {
         'setLang': '设置语言',

@@ -13,7 +13,7 @@
         props: {
             title: {
                 type: String,
-                default: '页面标题'
+                default: ''
             },
             describe: {
                 type: String,
@@ -22,7 +22,7 @@
         },
         computed: {
             getTitle() {
-                return this.$route.meta.title || this.title;
+                return this.title || this.$route.meta.title ;
             }
         },
         methods:{

@@ -30,6 +30,7 @@
             </Form>
         </div>
        <v-table :border="true"
+                :loading="loading"
                 :columns="columns"
                 :data="tableData"
                 :show-alter="true"
@@ -51,6 +52,7 @@
         data() {
             return {
                 pageSize: 10,
+                loading: false,
                 formInline: {
                     pro_num: '',
                     pro_name: '',
@@ -134,7 +136,9 @@
              * @description 查询表单数据
              */
             handleClick() {
+                this.loading = true;
                 getTableData(this.formInline,this.pageSize).then(res => {
+                    this.loading = false;
                     this.tableData = res.data;
                 })
             },

@@ -15,7 +15,7 @@
                     <svg-icon :icon-class="item.children[0].meta.icon" class-name="iconClass"></svg-icon>
                     <span>{{generateTitle(item.children[0].meta.title)}}</span>
                 </MenuItem>
-                <re-submenu v-else
+                <re-submenu v-if="!item.hidden"
                             :key="item.name"
                             :parent="item">
                 </re-submenu>
@@ -32,7 +32,7 @@
                    <svg-icon :icon-class="item.children[0].meta.icon" class-name="iconClassToop"></svg-icon>
                 </span>
                 </Tooltip>
-                <re-dropdown v-else
+                <re-dropdown v-if="!item.hidden"
                              :if-show="false"
                              :key="item.name"
                              :parent="item"></re-dropdown>

@@ -5,8 +5,18 @@ export const routes = [
     {
         path: '/login',
         name: 'login',
+        hidden: true,
         component: Login
     },
+    {
+        path: '/404',
+        name: '404',
+        meta: {
+            title: '404'
+        },
+        hidden: true,
+        component: () => import('@/views/error-page/Page404.vue')
+    }
 ];
 export const routesMap = [
     {
@@ -75,5 +85,29 @@ export const routesMap = [
                 component: () => import('@/views/table/Index.vue')
             }
         ]
-    }
+    },
+    {
+        path: '/widget',
+        name: 'widget',
+        component: Layout,
+        meta: {
+            title: 'widget',
+            roles: ['roleC'],
+            icon: 'widget'
+        },
+        children:[
+            {
+                path: 'accordion',
+                name: 'accordion',
+                meta: {
+                    roles: ['roleC'],
+                    title: 'accordion',
+                    icon: 'accordion'
+                },
+                component: () => import('@/views/accordion-page/Index.vue')
+            }
+        ]
+    },
+
+    {path: '*', redirect:'/404',hidden: true}
 ]

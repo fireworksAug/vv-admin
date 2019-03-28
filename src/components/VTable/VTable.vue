@@ -10,6 +10,7 @@
         <Table :border="border"
                ref="selection"
                :columns="columns"
+               :loading="loading"
                :data="data"
                height="500"
                @on-selection-change="selectChange"></Table>
@@ -28,6 +29,10 @@
     export default {
         name: "VTable",
         props: {
+            loading: {
+                type: Boolean,
+                default: false
+            },
             /**
              * @description 是否显示 Alter 提示
              */

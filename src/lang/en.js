@@ -7,7 +7,10 @@ export default {
         'form': 'Basic Form',
         'stepForm': 'Step Form',
         'widget': 'WidGet',
-        'accordion': 'Accordion'
+        'accordion': 'Accordion',
+        'person': 'Person',
+        'message': 'Message',
+        'setting': 'Setting'
     },
     navBar: {
         'setLang': 'Setting Language',

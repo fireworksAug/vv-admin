@@ -18,7 +18,9 @@
                     require('../../assets/images/accordion/two.png'),
                     require('../../assets/images/accordion/three.png'),
                     require('../../assets/images/accordion/four.png'),
+                    require('../../assets/images/accordion/five.png'),
                     require('../../assets/images/accordion/six.png'),
+                    require('../../assets/images/accordion/seven.png'),
                 ],
             }
         }

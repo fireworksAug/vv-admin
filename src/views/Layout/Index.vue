@@ -2,8 +2,8 @@
     <div class="layout">
         <Layout style="height: 100%">
             <a-header></a-header>
-            <Layout>
-                <Sider :style="getSiderColor" hide-trigger collapsible :collapsed-width="78" v-model="isCollapsed" breakpoint="sm">
+            <Layout style="height: 100%">
+                <Sider :style="getSiderColor" style="height: 100%;" hide-trigger collapsible :collapsed-width="78" v-model="isCollapsed" breakpoint="sm">
                     <a-menu :is-collapsed="isCollapsed" :router-list="routerList"></a-menu>
                 </Sider>
                 <Layout>
@@ -28,7 +28,7 @@
     import AMenu from "./components/menu/AMenu";
     import TagsMenu from "./components/tagsMenu/TagsMenu";
     import {mapMutations} from 'vuex';
-
+    import './index.less';
     export default {
         name: "Index",
         components: {TagsMenu, AMenu, AContent, ABreadcrumb, AHeader},
@@ -105,15 +105,3 @@
     }
 </script>
 
-<style scoped lang="less">
-    .layout{
-        background: #f5f7f9;
-        height: 100%;
-        .nav-header-main{
-            background-color: #fff;
-            height: 80px;
-            padding: 0px;
-            line-height: 0;
-        }
-    }
-</style>

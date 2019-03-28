@@ -108,6 +108,34 @@ export const routesMap = [
             }
         ]
     },
-
+    {
+        path: '/person',
+        name: 'person',
+        component: Layout,
+        meta: {
+            title: 'person',
+            icon: 'person'
+        },
+        children: [
+            {
+                path: 'message',
+                name: 'message',
+                meta: {
+                    title: 'message',
+                    icon: 'message'
+                },
+                component: () => import('@/views/person-message/Index.vue')
+            },
+            {
+                path: 'setting',
+                name: 'setting',
+                meta: {
+                    title: 'setting',
+                    icon: 'setting'
+                },
+                component: () => import('@/views/person-message/Setting.vue')
+            },
+        ]
+    },
     {path: '*', redirect:'/404',hidden: true}
 ]

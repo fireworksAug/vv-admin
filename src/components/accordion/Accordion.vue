@@ -25,28 +25,33 @@
 </script>
 
 <style scoped lang="less">
+    .size{
+        width: 1000px;
+        height: 200px;
+    }
     .accordion{
+        .size;
         ul {
-            width: 100%;
-            height: 100%;
+           .size;
+            overflow: hidden;
         }
         li {
-            width: 14%;
+            width: 14.28%;
+            height: 100%;
             float: left;
-            overflow: hidden;
             list-style: none;
-            transition: all 1.5s ease;
-            cursor: pointer;
+            transition: width 1s ease;
         }
         ul:hover li{
             width: 5%;
         }
         ul li:hover {
-            width: 50%;
+            width: 70%;
         }
         img {
-            height: 200px;
-            width: 600px;
+            height:100%;
+            width: 700px;
+            cursor: pointer;
         }
     }
 </style>

@@ -7,7 +7,10 @@ export default {
         'form': '基础表单',
         'stepForm': '分步表单',
         'widget': '组件',
-        'accordion': '手风琴'
+        'accordion': '手风琴',
+        'person': '个人页',
+        'message': '个人信息',
+        'setting': '个人设置'
     },
     navBar: {
         'setLang': '设置语言',

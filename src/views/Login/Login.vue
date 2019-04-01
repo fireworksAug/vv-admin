@@ -1,8 +1,5 @@
 <template>
     <div class="login-container">
-        <div class="login-title">
-            <p>Vue-iView-Admin</p>
-        </div>
         <div class="login-box">
             <h1 style="text-align: center;margin-bottom: 24px">系统登录</h1>
             <Form ref="formInline" :model="formInline" :rules="ruleInline">
@@ -89,16 +86,6 @@
         height: 100%;
         position: relative;
 
-        .login-title {
-            width: 100%;
-            height: 60px;
-            background: #64cce6;
-            position: absolute;
-            text-align: center;
-            font-size: 24px;
-            color: whitesmoke;
-            padding: 12px;
-        }
 
         .login-box {
             width: 400px;

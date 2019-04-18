@@ -149,6 +149,11 @@
                 overflow: hidden;
             }
         }
+        .ul-title{
+            li:first-child{
+                color:black;
+            }
+        }
         .ul-content{
             padding: 0 16px 16px;
             &  span {
@@ -160,6 +165,9 @@
                 line-height: 25px;
             }
             li:hover{
+                background-color: #f5f5f5;
+            }
+            li:nth-child(even){
                 background-color: #f5f5f5;
             }
             .rate{

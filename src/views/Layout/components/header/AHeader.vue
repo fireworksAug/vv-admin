@@ -173,7 +173,6 @@
             }
 
             h1 {
-                float: left;
                 height: 100%;
                 line-height: 44px;
                 color: white;

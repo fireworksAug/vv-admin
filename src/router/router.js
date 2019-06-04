@@ -14,7 +14,6 @@ export const routes = [
         hidden: true,
         component: () => import('@/views/error-page/Page404.vue')
     },
-    {path: '*', redirect:'/404',hidden: true}
 ];
 export const routesMap = [
     {
@@ -135,4 +134,5 @@ export const routesMap = [
             },
         ]
     },
+    {path: '*', redirect:'/404',hidden: true}
 ]

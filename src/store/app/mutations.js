@@ -1,4 +1,4 @@
-import {getTheme} from "../../until/cookie";
+import {getTheme} from "../../until/localStorage";
 
 export const mutations = {
     SET_THEME: state => {

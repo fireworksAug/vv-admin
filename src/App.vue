@@ -15,7 +15,6 @@
         }
         ::-webkit-scrollbar {//滚动条的宽度
             width:2px;
-
         }
         ::-webkit-scrollbar-thumb {//滚动条的设置
             background-color: #c5c5c5;

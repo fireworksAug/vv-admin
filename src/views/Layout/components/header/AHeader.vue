@@ -64,7 +64,8 @@
 </template>
 
 <script>
-    import {clearToken, setLang, setTheme} from "../../../../until/cookie";
+    import {clearToken} from "../../../../until/cookie";
+    import { setLang,setTheme } from "../../../../until/localStorage";
     import { themeObj } from "../../../../config/theme-config";
     import {clearLocalStroage} from "../../../../until/localStorage";
 

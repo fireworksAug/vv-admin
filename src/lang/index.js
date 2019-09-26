@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
-import {getLang} from "../until/cookie";
+import { getLang } from "../until/localStorage";
 import en from './en';
 import zh from './zh';
 import ien from 'iview/dist/locale/en-US';

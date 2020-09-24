@@ -17,10 +17,10 @@ export const clearLocalStroage = () => {
  * @param lang
  */
 export const setLang = (langType='en') => {
-    localStorage.set('lang',langType);
+    localStorage.setItem('lang',langType);
 };
 export const getLang = () => {
-    return localStorage.get('lang')
+    return localStorage.getItem('lang')
 }
 /**
  * 设置背景色
@@ -28,8 +28,8 @@ export const getLang = () => {
  * @param style 部位对应的样式
  */
 export const setTheme = (place,style) => {
-    localStorage.set(place,style)
+    localStorage.setItem(place,style)
 };
 export const getTheme = (place) => {
-    return localStorage.get(place);
+    return localStorage.getItem(place);
 }
